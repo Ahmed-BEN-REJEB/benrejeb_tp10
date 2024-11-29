@@ -9,6 +9,9 @@ public class PartieMonoJoueur {
 
     private final Tour premierTour; // Le premier tour
     private Tour tourCourant; // Le tour en cours
+    
+    //Ajout d'un attribut nomJoueur
+    private String nomJoueur;
 
     /**
      * Constructeur
@@ -78,4 +81,13 @@ public class PartieMonoJoueur {
         return estTerminee() ? 0 : tourCourant.getBoulesLancees() + 1;
     }
 
+    //Définition du Getter pour l'attribut "nomJoueur"
+    String getNomJoueur(){
+        return nomJoueur;
+    }
+
+    //Définition du Setter pour l'attribut "nomJoueur"
+    void setNomJoueur(String nom){
+        nomJoueur= nom;
+    }
 }
