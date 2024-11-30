@@ -119,15 +119,24 @@ public class Tour {
 	 * @return le score réalisé à partir de ce tour en tenant compte des bonus éventuels
 	 */
 	int scoreCumule() {
+		
 		int scoreDeCeTour;
+	
+		// Vérifie si ce tour est un strike
 		if (estUnStrike()) {
-			scoreDeCeTour = 10 + suivant.bonusPourStrike();
-		} else if (estUnSpare()) {
-			scoreDeCeTour = 10 + suivant.bonusPourSpare();
-		} else {
+			scoreDeCeTour = 10 + (suivant != null ? suivant.bonusPourStrike() : 0);
+		} 
+		// Vérifie si ce tour est un spare
+		else if (estUnSpare()) {
+			scoreDeCeTour = 10 + (suivant != null ? suivant.bonusPourSpare() : 0);
+		} 
+		// Cas général (pas de strike ni de spare)
+		else {
 			scoreDeCeTour = quillesAbattuesLancer1 + quillesAbattuesLancer2;
 		}
-		return scoreDeCeTour + suivant.scoreCumule();
+		
+		// Ajoute le score des tours suivants, s'ils existent
+		return scoreDeCeTour + (suivant != null ? suivant.scoreCumule() : 0);
 	}
 
 	/**

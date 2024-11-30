@@ -7,6 +7,11 @@ package bowling;
  */
 public class PartieMonoJoueur {
 
+    //Déclaration de l'attribut "numPartie" permettant de distinguer chaque partie du Jeu correspondante à joueur spécifique
+    private int numPartie;
+    //Déclaration de l'attribut statique "attribut_statique"
+    private static int attribut_statique=0;
+
     private final Tour premierTour; // Le premier tour
     private Tour tourCourant; // Le tour en cours
     
@@ -25,6 +30,7 @@ public class PartieMonoJoueur {
 		tourCourant = new Tour(numero, tourCourant);
         }
         premierTour = tourCourant;
+        this.numPartie = ++attribut_statique;
     }
 
     /**
@@ -90,4 +96,10 @@ public class PartieMonoJoueur {
     void setNomJoueur(String nom){
         nomJoueur= nom;
     }
+
+    //Définition du Getter pour l'attribut "numPartie"
+    int getNumPartie(){
+        return this.numPartie;
+    }
+
 }

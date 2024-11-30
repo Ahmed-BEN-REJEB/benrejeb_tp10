@@ -22,8 +22,9 @@ public interface IPartieMultiJoueurs {
 	 * de la forme "Prochain tir : joueur Bastide, tour n° 5, boule n° 2",
 	 * ou bien "Partie terminée" si la partie est terminée.
 	 * @throws java.lang.IllegalStateException si la partie n'est pas démarrée.
+	 * @throws java.lang.IllegalArgumentException si le nombre de quilles abbatues n'est valide (entre 0 et 10)
 	 */
-	public String enregistreLancer(int nombreDeQuillesAbattues) throws IllegalStateException;
+	public String enregistreLancer(int nombreDeQuillesAbattues) throws IllegalStateException, IllegalArgumentException;
 	
 	/**
 	 * Donne le score pour le joueur playerName
